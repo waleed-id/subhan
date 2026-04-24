@@ -58,7 +58,8 @@ nav.scrolled{top:1rem;background:rgba(8,11,18,.95);border-color:rgba(99,179,237,
 .nav-links a:hover::after{width:100%}
 
 /* ─── HERO ─── */
-.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:6rem 6rem 4rem;gap:4rem;position:relative;overflow:hidden}
+.hero{min-height:100vh;display:flex;align-items:center;padding:6rem 0 4rem;position:relative;overflow:hidden}
+.hero-inner{width:100%;max-width:1100px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:4rem}
 
 /* Animated gradient orbs */
 .orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;animation:orb-drift 12s ease-in-out infinite}
@@ -148,8 +149,11 @@ nav.scrolled{top:1rem;background:rgba(8,11,18,.95);border-color:rgba(99,179,237,
 .photo-corner.bl{bottom:-1px;left:-1px;border-bottom:2px solid var(--accent);border-left:2px solid var(--accent);border-radius:0 0 0 4px}
 .photo-corner.br{bottom:-1px;right:-1px;border-bottom:2px solid var(--accent);border-right:2px solid var(--accent);border-radius:0 0 4px 0}
 
+/* ─── CONTAINER ─── */
+.container{width:100%;max-width:1100px;margin:0 auto;padding:0 2rem}
+
 /* ─── SECTION COMMON ─── */
-section{padding:5.5rem 6rem;position:relative}
+section{padding:5.5rem 0;position:relative}
 .section-label{font-family:var(--mono);font-size:.7rem;color:var(--accent);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.8rem;display:flex;align-items:center;gap:.7rem}
 .section-label::before{content:'';display:block;width:28px;height:1px;background:linear-gradient(90deg,var(--accent),transparent)}
 .section-title{font-family:var(--heading);font-size:clamp(2rem,3.5vw,2.8rem);line-height:1.15;letter-spacing:-.02em;margin-bottom:.6rem}
@@ -212,20 +216,24 @@ section{padding:5.5rem 6rem;position:relative}
 .proj-stack{display:flex;flex-wrap:wrap;gap:.28rem}
 .stack-pill{background:rgba(255,255,255,.03);border-radius:5px;padding:.12rem .48rem;font-size:.65rem;font-family:var(--mono);color:var(--muted);border:1px solid rgba(255,255,255,.05)}
 
-/* ─── FEATURED PROJECTS ─── */
+/* ─── WALEED-STYLE PROJECT GRID ─── */
 .projects-section{background:var(--surface)}
-.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:3rem}
-.feat-project{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.8rem;transition:all .4s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden;cursor:default}
-.feat-project::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),var(--accent2),transparent);opacity:0;transition:opacity .4s}
-.feat-project::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(99,179,237,.05),transparent 60%);opacity:0;transition:opacity .4s;pointer-events:none}
-.feat-project:hover::before{opacity:1}
-.feat-project:hover::after{opacity:1}
-.feat-project:hover{border-color:rgba(99,179,237,.2);transform:translateY(-6px);box-shadow:0 24px 48px rgba(0,0,0,.3)}
-.feat-num{font-family:var(--mono);font-size:.65rem;color:var(--muted);margin-bottom:.8rem;display:flex;align-items:center;gap:.4rem}
-.feat-num::after{content:'';flex:1;height:1px;background:var(--border)}
-.feat-name{font-family:var(--heading);font-size:1.05rem;margin-bottom:.5rem;transition:color .3s}
-.feat-project:hover .feat-name{color:var(--accent)}
-.feat-desc{font-size:.8rem;color:var(--muted);line-height:1.7}
+.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem;margin-top:0}
+.proj-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:all .4s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden;cursor:default}
+.proj-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0;transition:opacity .4s}
+.proj-card::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(99,179,237,.04),transparent 60%);opacity:0;transition:opacity .4s;pointer-events:none}
+.proj-card:hover::before{opacity:1}
+.proj-card:hover::after{opacity:1}
+.proj-card:hover{border-color:rgba(99,179,237,.2);transform:translateY(-5px);box-shadow:0 24px 48px rgba(0,0,0,.3)}
+.proj-wide{grid-column:span 2}
+.proj-cat{display:inline-block;font-family:var(--mono);font-size:.65rem;color:var(--accent);background:rgba(99,179,237,.08);border:1px solid rgba(99,179,237,.15);border-radius:100px;padding:.2rem .7rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.9rem}
+.proj-card h3{font-family:var(--heading);font-size:1.15rem;line-height:1.3;margin-bottom:.6rem;letter-spacing:-.01em;transition:color .3s}
+.proj-card:hover h3{color:var(--accent)}
+.p-role{font-size:.7rem;color:var(--accent2);font-weight:500;text-transform:uppercase;letter-spacing:.07em;margin-bottom:.75rem;font-family:var(--mono)}
+.p-desc{font-size:.82rem;color:var(--muted);line-height:1.78;margin-bottom:1.2rem;font-weight:300}
+.proj-stack{display:flex;flex-wrap:wrap;gap:.35rem}
+.proj-stack span{font-family:var(--mono);font-size:.65rem;padding:.2rem .55rem;border-radius:5px;background:rgba(255,255,255,.04);color:var(--muted);border:1px solid rgba(255,255,255,.05);transition:all .2s}
+.proj-card:hover .proj-stack span{background:rgba(99,179,237,.05);border-color:rgba(99,179,237,.1)}
 
 /* ─── CONTACT ─── */
 .contact-section{background:var(--bg)}
@@ -240,7 +248,8 @@ section{padding:5.5rem 6rem;position:relative}
 .contact-link:hover .contact-icon{background:rgba(99,179,237,.15);border-color:rgba(99,179,237,.3)}
 
 /* ─── FOOTER ─── */
-footer{background:var(--surface);padding:2rem 6rem;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border)}
+footer{background:var(--surface);padding:2rem 0;border-top:1px solid var(--border)}
+.footer-inner{max-width:1100px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between}
 .footer-text{font-family:var(--mono);font-size:.7rem;color:var(--muted)}
 
 /* ─── TYPEWRITER ─── */
@@ -256,19 +265,20 @@ footer{background:var(--surface);padding:2rem 6rem;display:flex;align-items:cent
 
 /* ─── MOBILE ─── */
 @media(max-width:1024px){
-  .hero{grid-template-columns:1fr;padding:5rem 2rem 3rem;text-align:center}
+  .hero{padding:5rem 0 3rem}.hero-inner{grid-template-columns:1fr;text-align:center}
   .hero-visual{display:none}
   .hero-stats{justify-content:center}
   .hero-actions{justify-content:center}
-  section{padding:4rem 2rem}
+  section{padding:4rem 0}.container{padding:0 1.2rem}
   .skills-grid{grid-template-columns:1fr 1fr}
-  .projects-grid{grid-template-columns:1fr 1fr}
+  .proj-grid{grid-template-columns:1fr}
+  .proj-wide{grid-column:span 1}
   .contact-inner{grid-template-columns:1fr}
   nav{gap:1rem;padding:.5rem 1.2rem}
   footer{padding:1.5rem 2rem;flex-direction:column;gap:.5rem;text-align:center}
 }
 @media(max-width:600px){
-  .skills-grid,.projects-grid{grid-template-columns:1fr}
+  .skills-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -295,7 +305,7 @@ footer{background:var(--surface);padding:2rem 6rem;display:flex;align-items:cent
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
   <div class="orb orb-3"></div>
-
+  <div class="hero-inner">
   <div class="hero-content">
     <div class="hero-badge">
       <span class="badge-dot"></span>
@@ -352,6 +362,7 @@ footer{background:var(--surface);padding:2rem 6rem;display:flex;align-items:cent
       <div class="photo-corner br"></div>
     </div>
   </div>
+  </div><!-- /hero-inner -->
 
   <div class="scroll-indicator">
     <div class="scroll-text">Scroll</div>
@@ -361,6 +372,7 @@ footer{background:var(--surface);padding:2rem 6rem;display:flex;align-items:cent
 
 <!-- SKILLS -->
 <section class="skills-section" id="skills">
+<div class="container">
   <div class="section-label reveal">Technical Expertise</div>
   <h2 class="section-title reveal d1">Built with the right tools</h2>
   <div class="divider reveal d2"></div>
@@ -408,10 +420,12 @@ footer{background:var(--surface);padding:2rem 6rem;display:flex;align-items:cent
       </div>
     </div>
   </div>
+</div>
 </section>
 
 <!-- EXPERIENCE -->
 <section class="exp-section" id="experience">
+<div class="container">
   <div class="section-label reveal">Career Timeline</div>
   <h2 class="section-title reveal d1">Where I've built</h2>
   <div class="divider reveal d2"></div>
@@ -423,14 +437,7 @@ footer{background:var(--surface);padding:2rem 6rem;display:flex;align-items:cent
         <div><div class="exp-role">Head of Engineering</div><div class="exp-company">AMENTO TECH PVT LTD</div></div>
         <div class="exp-period">2024 — Present</div>
       </div>
-      <div class="exp-desc">Leading engineering with 60% hands-on development and 40% leadership. Architecting full-stack affiliate marketing solutions with real-time social media integrations.</div>
-      <div class="exp-projects">
-        <div class="project-card">
-          <div class="proj-top"><div class="proj-name">Devotion — Affiliate Marketing Platform</div></div>
-          <div class="proj-desc">Shopify affiliate platform enabling community managers to drive sales through campaigns, gifting suites, and discount codes. Integrated Tremendous for payouts and MetaApp for business insights.</div>
-          <div class="proj-stack"><span class="stack-pill">Ruby on Rails</span><span class="stack-pill">Shopify</span><span class="stack-pill">Sidekiq</span><span class="stack-pill">React</span><span class="stack-pill">TypeScript</span><span class="stack-pill">AWS</span><span class="stack-pill">Twilio</span></div>
-        </div>
-      </div>
+      <div class="exp-desc">Leading engineering with 60% hands-on development and 40% leadership. Architecting full-stack solutions with real-time social media integrations and automated payout systems.</div>
     </div>
 
     <div class="exp-item reveal d1">
@@ -440,18 +447,6 @@ footer{background:var(--surface);padding:2rem 6rem;display:flex;align-items:cent
         <div class="exp-period">2021 — 2024</div>
       </div>
       <div class="exp-desc">Led BE/FE teams across enterprise-scale projects. Documented technical requirements, optimized production infrastructure, and implemented QA test plans on live customer data.</div>
-      <div class="exp-projects">
-        <div class="project-card">
-          <div class="proj-top"><div class="proj-name">BistroMD — Meal Delivery Platform</div><div class="proj-users">1M users</div></div>
-          <div class="proj-desc">Subscription-based meal delivery service with specialized diet plans. Built Shopify REST APIs, optimized ECS Docker containers, and implemented production regressions.</div>
-          <div class="proj-stack"><span class="stack-pill">Ruby on Rails</span><span class="stack-pill">Shopify</span><span class="stack-pill">Netsuite</span><span class="stack-pill">React</span><span class="stack-pill">PostgreSQL</span><span class="stack-pill">MongoDB</span></div>
-        </div>
-        <div class="project-card">
-          <div class="proj-top"><div class="proj-name">Pipeline Equity — HR Analytics</div><div class="proj-users">70K users</div></div>
-          <div class="proj-desc">HR analytics platform operationalizing DEI into daily actions. RDS-level optimization and Jenkins API integration for automated client onboarding.</div>
-          <div class="proj-stack"><span class="stack-pill">Elixir/Phoenix</span><span class="stack-pill">MERN Stack</span><span class="stack-pill">PostgreSQL</span><span class="stack-pill">Jenkins</span><span class="stack-pill">AWS</span></div>
-        </div>
-      </div>
     </div>
 
     <div class="exp-item reveal d2">
@@ -460,18 +455,7 @@ footer{background:var(--surface);padding:2rem 6rem;display:flex;align-items:cent
         <div><div class="exp-role">Senior Software Engineer</div><div class="exp-company">Evolverstech</div></div>
         <div class="exp-period">2020 — 2021</div>
       </div>
-      <div class="exp-projects">
-        <div class="project-card">
-          <div class="proj-top"><div class="proj-name">NLTCRM — Project &amp; Task Management</div><div class="proj-users">130K users</div></div>
-          <div class="proj-desc">Multi-tenant SaaS CRM. Implemented subscription features, time-card sheets, expense tracking, project templates, and electronic signature on contracts.</div>
-          <div class="proj-stack"><span class="stack-pill">Ruby on Rails</span><span class="stack-pill">React</span><span class="stack-pill">Material UI</span><span class="stack-pill">PostgreSQL</span><span class="stack-pill">MongoDB</span></div>
-        </div>
-        <div class="project-card">
-          <div class="proj-top"><div class="proj-name">Spicee (Everest) — Sales CRM</div></div>
-          <div class="proj-desc">Role-based sales platform with 2-way sync with SugarCRM, Salesforce, and Zoho CRM. Sidekiq bulk data syncing and BitDefender API integration.</div>
-          <div class="proj-stack"><span class="stack-pill">Ruby on Rails</span><span class="stack-pill">Sidekiq</span><span class="stack-pill">Salesforce</span><span class="stack-pill">Zoho CRM</span><span class="stack-pill">Heroku</span></div>
-        </div>
-      </div>
+      <div class="exp-desc">Delivered multi-tenant SaaS platforms with subscription management, time tracking, and CRM integrations. Owned full deployment pipeline from staging to production.</div>
     </div>
 
     <div class="exp-item reveal d3">
@@ -480,13 +464,7 @@ footer{background:var(--surface);padding:2rem 6rem;display:flex;align-items:cent
         <div><div class="exp-role">Senior Ruby on Rails Engineer</div><div class="exp-company">TechClan</div></div>
         <div class="exp-period">2019 — 2020</div>
       </div>
-      <div class="exp-projects">
-        <div class="project-card">
-          <div class="proj-top"><div class="proj-name">Corkcrm — Painting Business Management</div><div class="proj-users">2M users</div></div>
-          <div class="proj-desc">European CRM for painting contractors. Reduced test suite runtime by 50%, implemented Change Order and Customer/Crew Portals with Stripe/QuickBooks.</div>
-          <div class="proj-stack"><span class="stack-pill">Ruby on Rails</span><span class="stack-pill">React</span><span class="stack-pill">QuickBooks</span><span class="stack-pill">Stripe</span><span class="stack-pill">Rspec</span><span class="stack-pill">Selenium</span></div>
-        </div>
-      </div>
+      <div class="exp-desc">Built and optimized CRM features for European business clients. Reduced test suite runtime by 50% and implemented payment integrations with Stripe and QuickBooks.</div>
     </div>
 
     <div class="exp-item reveal d4">
@@ -495,40 +473,109 @@ footer{background:var(--surface);padding:2rem 6rem;display:flex;align-items:cent
         <div><div class="exp-role">Ruby on Rails Engineer</div><div class="exp-company">PloyVista</div></div>
         <div class="exp-period">2016 — 2018</div>
       </div>
-      <div class="exp-projects">
-        <div class="project-card">
-          <div class="proj-top"><div class="proj-name">MyFitment — eBay &amp; Amazon Catalog</div><div class="proj-users">4M users</div></div>
-          <div class="proj-desc">80% background-job-driven platform for managing eBay/Amazon fitments. Integrated Stripe/PayPal and optimized Sidekiq batch processing.</div>
-          <div class="proj-stack"><span class="stack-pill">Ruby on Rails</span><span class="stack-pill">Sidekiq</span><span class="stack-pill">eBay API</span><span class="stack-pill">Amazon API</span><span class="stack-pill">Stripe</span></div>
-        </div>
-        <div class="project-card">
-          <div class="proj-top"><div class="proj-name">MyCarParts — Auto Parts E-commerce</div></div>
-          <div class="proj-desc">Multi-channel car parts platform. Migrated Heroku → Puma/Nginx and MySQL → PostgreSQL. Converted to multi-tenant architecture.</div>
-          <div class="proj-stack"><span class="stack-pill">Ruby on Rails</span><span class="stack-pill">PostgreSQL</span><span class="stack-pill">Nginx/Puma</span><span class="stack-pill">Rspec</span></div>
-        </div>
+      <div class="exp-desc">Built high-scale e-commerce catalog systems serving millions of users. Performed infrastructure migrations and optimized background job processing pipelines.</div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- SELECTED WORK -->
+<section class="projects-section" id="projects">
+<div class="container">
+  <div class="section-label reveal">Selected Work</div>
+  <h2 class="section-title reveal d1">Systems that move<br><em>real business.</em></h2>
+  <p class="section-desc reveal d2" style="margin-bottom:3rem">Every project below was architected, led, and shipped by me. End to end.</p>
+
+  <div class="proj-grid">
+
+    <div class="proj-card proj-wide reveal d1">
+      <span class="proj-cat">Affiliate Marketing</span>
+      <h3>Shopify-Powered Affiliate Campaign &amp; Commission Engine</h3>
+      <p class="p-role">Lead Engineer · Full Stack · Shopify Architect</p>
+      <p class="p-desc">A comprehensive affiliate marketing platform enabling Shopify store owners to drive sales through campaigns, gifting suites, and structured discount codes. I architected the commission distribution system, integrated real-time social analytics from Instagram, Meta, and TikTok, and built automated payout flows via third-party payment APIs. Led the full BE/FE team from requirements to production deployment on AWS.</p>
+      <div class="proj-stack">
+        <span>Ruby on Rails</span><span>React</span><span>TypeScript</span><span>Shopify API</span><span>Sidekiq</span><span>AWS</span><span>Twilio</span>
+      </div>
+    </div>
+
+    <div class="proj-card reveal d2">
+      <span class="proj-cat">Health &amp; Wellness</span>
+      <h3>Subscription-Based Meal Delivery &amp; Diet Plan Platform</h3>
+      <p class="p-role">Staff Engineer · Backend Lead · DevOps</p>
+      <p class="p-desc">A high-scale meal delivery service supporting 1M+ live users across specialized diet plans. I built REST APIs for Shopify-integrated checkout, implemented QA regression pipelines on live customer data, and optimized ECS Docker containers for improved cost and performance. Led documentation and JIRA ticket creation for the full engineering team.</p>
+      <div class="proj-stack">
+        <span>Ruby on Rails</span><span>Shopify</span><span>Netsuite</span><span>React</span><span>PostgreSQL</span><span>MongoDB</span><span>Docker/ECS</span><span>AWS</span>
+      </div>
+    </div>
+
+    <div class="proj-card reveal d3">
+      <span class="proj-cat">HR Analytics</span>
+      <h3>DEI &amp; Pay Equity Analytics Platform</h3>
+      <p class="p-role">Staff Engineer · Backend Lead · API Architect</p>
+      <p class="p-desc">An HR analytics platform operationalizing diversity, equity, and inclusion intentions into daily workforce actions for 70K+ users. I performed RDS-level database optimizations, built external-facing APIs, and integrated Jenkins API to fully automate the client onboarding process — cutting setup time dramatically.</p>
+      <div class="proj-stack">
+        <span>Elixir/Phoenix</span><span>Node.js</span><span>React</span><span>PostgreSQL</span><span>Jenkins</span><span>AWS</span>
+      </div>
+    </div>
+
+    <div class="proj-card reveal d4">
+      <span class="proj-cat">SaaS CRM</span>
+      <h3>Multi-Tenant Project &amp; Task Management SaaS</h3>
+      <p class="p-role">Senior Engineer · Full Stack · Feature Lead</p>
+      <p class="p-desc">A web-based CRM for 130K+ users enabling organizations to manage projects, tasks, contracts, and customer payments. I implemented subscription plans, time-card tracking, expense management, bulk project templates, and electronic signature functionality for customer contracts — delivering the full feature set end to end.</p>
+      <div class="proj-stack">
+        <span>Ruby on Rails</span><span>React</span><span>Material UI</span><span>PostgreSQL</span><span>MongoDB</span><span>Node.js</span>
+      </div>
+    </div>
+
+    <div class="proj-card reveal d5">
+      <span class="proj-cat">Sales &amp; CRM</span>
+      <h3>Multi-CRM Sales Platform with Bi-Directional Sync</h3>
+      <p class="p-role">Senior Engineer · Integration Lead</p>
+      <p class="p-desc">A role-based sales management platform with two-way data synchronization across three major CRM systems. I built bulk data sync workers using Sidekiq, integrated third-party security APIs for data enrichment, and implemented scheduled cron jobs for background operations. Also led and mentored junior engineers on the project.</p>
+      <div class="proj-stack">
+        <span>Ruby on Rails</span><span>Sidekiq</span><span>Salesforce API</span><span>Zoho CRM</span><span>SugarCRM</span><span>PostgreSQL</span><span>Heroku</span>
+      </div>
+    </div>
+
+    <div class="proj-card reveal d6">
+      <span class="proj-cat">Field Operations</span>
+      <h3>End-to-End Painting Business Operations CRM</h3>
+      <p class="p-role">Senior RoR Engineer · Testing Lead</p>
+      <p class="p-desc">A specialized CRM for painting contractors managing leads, scheduling, crew timecards, invoicing, and payment processing for 2M+ users. I built REST APIs for the Estimates module, implemented Change Order and Customer/Crew Portals, wrote comprehensive Rspec/Selenium test cases, and optimized the test suite runtime by 50%.</p>
+      <div class="proj-stack">
+        <span>Ruby on Rails</span><span>React</span><span>Ant Design</span><span>Stripe</span><span>QuickBooks</span><span>Rspec</span><span>Selenium</span>
+      </div>
+    </div>
+
+    <div class="proj-card reveal d3">
+      <span class="proj-cat">E-Commerce</span>
+      <h3>Multi-Channel Fitment &amp; Catalog Management Platform</h3>
+      <p class="p-role">Rails Engineer · Background Jobs · Payment Integration</p>
+      <p class="p-desc">A subscription-based platform for managing product fitments across multiple marketplaces, serving 4M+ users with 80% of operations driven by background jobs. I optimized Sidekiq batch processing for large-scale data migrations, integrated Stripe and PayPal for payments, and built search functionality spanning multi-platform accounts.</p>
+      <div class="proj-stack">
+        <span>Ruby on Rails</span><span>Sidekiq</span><span>eBay API</span><span>Amazon API</span><span>Stripe</span><span>PayPal</span><span>PostgreSQL</span>
+      </div>
+    </div>
+
+    <div class="proj-card reveal d4">
+      <span class="proj-cat">Auto Parts &amp; More</span>
+      <h3>Auto Parts E-Commerce, Infrastructure Migrations &amp; More</h3>
+      <p class="p-role">Rails Engineer · Infrastructure · Multi-Tenant Architecture</p>
+      <p class="p-desc">Managed a multi-channel car parts business platform across eBay and Amazon. Led a full infrastructure migration from Heroku to Puma/Nginx servers, a database migration from MySQL to PostgreSQL, and converted the app to a multi-tenant architecture. Also delivered an internal admin panel built from scratch with role-based access and subscription controls.</p>
+      <div class="proj-stack">
+        <span>Ruby on Rails</span><span>PostgreSQL</span><span>Nginx/Puma</span><span>Capistrano</span><span>Rspec</span>
       </div>
     </div>
 
   </div>
-</section>
-
-<!-- FEATURED PROJECTS -->
-<section class="projects-section" id="projects">
-  <div class="section-label reveal">Scalable Systems Built</div>
-  <h2 class="section-title reveal d1">Featured Initiatives</h2>
-  <div class="divider reveal d2"></div>
-  <div class="projects-grid">
-    <div class="feat-project reveal d1"><div class="feat-num">01</div><div class="feat-name">Scalable Affiliate Campaign Engine</div><div class="feat-desc">High-throughput campaign management with social platform integrations and automated commission distribution via Tremendous.</div></div>
-    <div class="feat-project reveal d2"><div class="feat-num">02</div><div class="feat-name">Multi-Tenant SaaS CRM Platform</div><div class="feat-desc">Enterprise-grade CRM with role-based access, subscription management, and organization-level customization for 130K+ users.</div></div>
-    <div class="feat-project reveal d3"><div class="feat-num">03</div><div class="feat-name">Real-Time Social Media Analytics</div><div class="feat-desc">Live analytics pipeline processing data from Instagram, Meta, and TikTok for brand performance insights and profit tracking.</div></div>
-    <div class="feat-project reveal d4"><div class="feat-num">04</div><div class="feat-name">E-commerce Microservices Platform</div><div class="feat-desc">Distributed e-commerce architecture serving 4M+ users with background job processing for seamless catalog migrations.</div></div>
-    <div class="feat-project reveal d5"><div class="feat-num">05</div><div class="feat-name">Automated CI/CD Pipeline</div><div class="feat-desc">Full deployment automation with Jenkins, Docker ECS optimization, and zero-downtime production releases.</div></div>
-    <div class="feat-project reveal d6"><div class="feat-num">06</div><div class="feat-name">Pay Equity Analytics Engine</div><div class="feat-desc">HR analytics platform with RDS-level optimizations translating DEI intentions into measurable daily workforce actions.</div></div>
-  </div>
+</div>
 </section>
 
 <!-- CONTACT -->
 <section class="contact-section" id="contact">
+<div class="container">
   <div class="contact-inner">
     <div>
       <div class="section-label reveal">Let's Connect</div>
@@ -564,11 +611,14 @@ footer{background:var(--surface);padding:2rem 6rem;display:flex;align-items:cent
       </div>
     </div>
   </div>
+</div>
 </section>
 
 <footer>
+<div class="footer-inner">
   <div class="footer-text">© 2025 Subhan Abid — Head of Engineering</div>
   <div class="footer-text">Built with precision &amp; passion ✦</div>
+</div>
 </footer>
 
 <script>
@@ -696,8 +746,8 @@ const countObs=new IntersectionObserver(entries=>{
 },{threshold:.5});
 document.querySelectorAll('.count-up').forEach(el=>countObs.observe(el));
 
-/* ── MAGNETIC FEAT PROJECTS ── */
-document.querySelectorAll('.feat-project').forEach(card=>{
+/* ── MAGNETIC PROJ CARDS ── */
+document.querySelectorAll('.proj-card').forEach(card=>{
   card.addEventListener('mousemove',e=>{
     const r=card.getBoundingClientRect();
     const x=((e.clientX-r.left)/r.width*100).toFixed(1);
